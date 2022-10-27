@@ -37,10 +37,9 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'NIP' => ['required', 'string', 'max:255'],
-            'Alamat' => ['required', 'string', 'max:255'],
-            'No_Telp' => ['required', 'string', 'max:255'],
-            'TL' => ['required'],
+            'NIP' => ['required'],
+            'alamat' => ['required'],
+            'noTelp' => ['required'],
             'JK' => ['required'],
         ]);
 
@@ -48,9 +47,9 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'TL' => $request->TL,
-            'Alamat' => $request->Alamat,
-            'No_Telp' => $request->No_Telp,
+            'tl' => $request->tl,
+            'alamat' => $request->alamat,
+            'noTelp' => $request->noTelp,
             'NIP' => $request->NIP,
             'JK' => $request->JK,
         ]);
