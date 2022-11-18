@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,25 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get("/redirectAuthenticatedUsers", [RedirectAuthenticatedUsersController::class, "home"]);
+    //untuk admin
+    Route::group(['middleware' => 'checkRole:admin'], function () {
+        Route::get('/adminDashboard', [DashboardController::class, 'indexAdm'])->name('admin-dashboard');
+        //view yang dapat diakses oleh admin
+    });
+
+    // User
+    Route::group(['middleware' => 'checkRole:user'], function () {
+        Route::get('/userDashboard', [DashboardController::class, 'indexUser'])->name('user-dashboard');
+        //view yang dapat diakses oleh user
+    });
+
+    //Guest
+    Route::group(['middleware' => 'checkRole:guest'], function () {
+        Route::get('/guestDashboard', [DashboardController::class, 'guestUser'])->name('guest-dashboard');
+        //view yang dapat diakses oleh guest
+    });
+});
 require __DIR__ . '/auth.php';
