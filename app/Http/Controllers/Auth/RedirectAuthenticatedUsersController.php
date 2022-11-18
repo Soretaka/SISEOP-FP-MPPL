@@ -12,7 +12,7 @@ class RedirectAuthenticatedUsersController extends Controller
     {
         if (auth()->user()->isAdmin == 1) {
             return redirect('/adminDashboard');
-        } elseif (auth()->user()->isAdmin == 0) {
+        } elseif (auth()->user()->isAdmin == 0 && auth()->user()->jabatan != 0) {
             return redirect('/userDashboard');
         } elseif (auth()->user()->isAdmin == 0 && auth()->user()->jabatan == 0) {
             return redirect('/guestDashboard');

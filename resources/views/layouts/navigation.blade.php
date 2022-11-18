@@ -11,6 +11,12 @@
                         <x-nav-link :href="route('admin-dashboard')" :active="request()->routeIs('admin-dashboard')">
                             dashboard
                         </x-nav-link>
+                        <x-nav-link :href="route('ubah-role')" :active="request()->routeIs('ubah-role')">
+                            ubah-role
+                        </x-nav-link>
+                        <x-nav-link :href="route('tambah-role')" :active="request()->routeIs('tambah-role')">
+                            tambah-role
+                        </x-nav-link>
                     @elseif (auth()->user()->jabatan != 0)
                         <x-nav-link :href="route('user-dashboard')" :active="request()->routeIs('user-dashboard')">
                             {{ __('Dashboard') }}

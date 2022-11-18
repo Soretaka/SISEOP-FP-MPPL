@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use App\Http\Controllers\UserJabatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::group(['middleware' => 'auth'], function () {
     //untuk admin
     Route::group(['middleware' => 'checkRole:admin'], function () {
         Route::get('/adminDashboard', [DashboardController::class, 'indexAdm'])->name('admin-dashboard');
+        Route::get('/ubahRole', [UserJabatanController::class, 'ubahRole'])->name('ubah-role');
+        Route::get('/tambahRole', [UserJabatanController::class, 'tambahRole'])->name('tambah-role');
+        Route::post('/store', [UserJabatanController::class, 'addRole'])->name('store-data-role');
         //view yang dapat diakses oleh admin
     });
 
