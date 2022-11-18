@@ -11,4 +11,12 @@ class jabatan extends Model
     protected $fillable = [
         'NamaJabatan',
     ];
+    public function user_jabatan()
+    {
+        return $this->hasOne(user_jabatan::class);
+    }
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

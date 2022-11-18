@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->integer('jabatan')->default(0);
             $table->integer('isAdmin')->default(0);
             $table->string('password');
             $table->string('tl');

@@ -15,7 +15,7 @@ class UserJabatanController extends Controller
     }
     public function tambahRole()
     {
-        $jabatans = jabatan::all();
+        $jabatans = jabatan::get();
         return view('admin.tambahRole', ['jabatans' => $jabatans]);
     }
     public function addRole(Request $request)

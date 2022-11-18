@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('NamaJabatan');
             $table->timestamps();
         });
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('jabatan_id')->nullable()->default(1);
+            $table->foreign('jabatan_id')->references('id')->on('jabatans')
+                ->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

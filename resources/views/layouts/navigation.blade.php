@@ -17,7 +17,7 @@
                         <x-nav-link :href="route('tambah-role')" :active="request()->routeIs('tambah-role')">
                             tambah-role
                         </x-nav-link>
-                    @elseif (auth()->user()->jabatan != 0)
+                    @elseif (auth()->user()->jabatan_id != 0)
                         <x-nav-link :href="route('user-dashboard')" :active="request()->routeIs('user-dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
