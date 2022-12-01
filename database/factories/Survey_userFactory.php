@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\survey-user>
  */
-class SurveyUserFactory extends Factory
+class Survey_userFactory extends Factory
 {
     /**
      * Define the model's default state.

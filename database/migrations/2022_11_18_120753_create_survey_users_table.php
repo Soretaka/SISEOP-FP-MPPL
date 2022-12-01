@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('survey-users', function (Blueprint $table) {
+        Schema::create('survey_users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('survey_id');
             $table->unsignedBigInteger('user_id');
@@ -22,11 +22,11 @@ return new class extends Migration
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
-            $table->float('skor1');
-            $table->float('skor2');
-            $table->float('skor3');
-            $table->float('skor4');
-            $table->float('skor5');
+            $table->float('skor1')->default(0);
+            $table->float('skor2')->default(0);
+            $table->float('skor3')->default(0);
+            $table->float('skor4')->default(0);
+            $table->float('skor5')->default(0);
             $table->timestamps();
         });
     }

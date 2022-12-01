@@ -54,4 +54,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(jabatan::class, 'jabatan_id');
     }
+    public function survey_user()
+    {
+        return $this->hasMany(survey_user::class);
+    }
 }

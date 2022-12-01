@@ -25,6 +25,12 @@ class DatabaseSeeder extends Seeder
         \App\Models\jabatan::factory()->create([
             'NamaJabatan' => 'Responden',
         ]);
+        \App\Models\jenisPertanyaan::factory()->create([
+            'NamaJenisPertanyaan' => 'esai',
+        ]);
+        \App\Models\jenisPertanyaan::factory()->create([
+            'NamaJenisPertanyaan' => 'Pilihan Ganda',
+        ]);
         \App\Models\User::factory()->create([
             'name' => 'surveyor',
             'email' => 'surveyor@gmail.com',
@@ -37,6 +43,17 @@ class DatabaseSeeder extends Seeder
             'jabatan_id' => '2',
         ]);
         \App\Models\User::factory()->create([
+            'name' => 'responden',
+            'email' => 'responden@gmail.com',
+            'isAdmin' => '0',
+            'tl' => 'Bandung',
+            'alamat' => 'Bandung',
+            'noTelp' => '081234567890',
+            'NIP' => '1234567890',
+            'JK' => 'Laki-laki',
+            'jabatan_id' => '3',
+        ]);
+        \App\Models\User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'isAdmin' => '1',
@@ -46,6 +63,20 @@ class DatabaseSeeder extends Seeder
             'NIP' => '1234567890',
             'JK' => 'Laki-laki',
             'jabatan_id' => '2',
+        ]);
+        \App\Models\survey::factory()->create([
+            'NamaSurvey' => 'Survey 1',
+            'Deskripsi' => 'Deskripsi Survey 1',
+            'user_id' => '2',
+        ]);
+        \App\Models\survey::factory()->create([
+            'NamaSurvey' => 'Survey 2',
+            'Deskripsi' => 'Deskripsi Survey 2',
+            'user_id' => '2',
+        ]);
+        \App\Models\survey_user::factory()->create([
+            'user_id' => '3',
+            'survey_id' => '1',
         ]);
     }
 }

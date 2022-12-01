@@ -13,4 +13,8 @@ class survey extends Model
         'Deskripsi',
         'user_id'
     ];
+    public function survey_user()
+    {
+        return $this->hasOne(survey_user::class);
+    }
 }
