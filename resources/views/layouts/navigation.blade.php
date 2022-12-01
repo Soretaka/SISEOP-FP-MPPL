@@ -21,6 +21,9 @@
                         <x-nav-link :href="route('user-dashboard')" :active="request()->routeIs('user-dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('survey-dashboard')" :active="request()->routeIs('survey-dashboard')">
+                            survey dashboard
+                        </x-nav-link>
                     @else
                         <x-nav-link :href="route('guest-dashboard')" :active="request()->routeIs('guest-dashboard')">
                             {{ __('Dashboard') }}

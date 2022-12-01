@@ -26,7 +26,7 @@
                             </div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-md btn-primary">Save</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Save</button>
                     </form>
                 </div>
             </div>

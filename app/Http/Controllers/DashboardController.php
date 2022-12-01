@@ -19,4 +19,8 @@ class DashboardController extends Controller
     {
         return view('guest.dashboard');
     }
+    public function surveyDashboard()
+    {
+        return view('user.questioner');
+    }
 }
