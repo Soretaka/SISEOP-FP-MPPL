@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use App\Http\Controllers\BankPertanyaanController;
 use App\Http\Controllers\UserJabatanController;
 
 /*
@@ -36,8 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
     // User
     Route::group(['middleware' => 'checkRole:user'], function () {
         Route::get('/userDashboard', [DashboardController::class, 'indexUser'])->name('user-dashboard');
-        Route::get('/surveyDashboard', [SurveyController::class, 'tambahSurvey'])->name('survey-dashboard');
+        Route::get('/surveyDashboard', [SurveyController::class, 'indexSurvey'])->name('survey-dashboard');
         Route::post('/storeSurvey', [SurveyController::class, 'addSurvey'])->name('store-data-survey');
+
+        Route::get('/questionDashboard', [BankPertanyaanController::class, 'indexPertanyaan'])->name('pertanyaan-dashboard');
         //view yang dapat diakses oleh user
     });
 

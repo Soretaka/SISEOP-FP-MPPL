@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class SurveyController extends Controller
 {
-    public function tambahSurvey()
+    public function indexSurvey()
     {
         $surveys = survey::where('user_id', auth()->user()->id)->get();
-        return view('user.questioner', ['surveys' => $surveys]);
+        return view('user.questioner',  ['surveys' => $surveys]);
     }
     public function addSurvey(Request $request)
     {
