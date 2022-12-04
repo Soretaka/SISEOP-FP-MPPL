@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'checkRole:admin'], function () {
         Route::get('/adminDashboard', [DashboardController::class, 'indexAdm'])->name('admin-dashboard');
         Route::get('/ubahRole', [UserJabatanController::class, 'ubahRole'])->name('ubah-role');
+        Route::put('/updateRole', [UserJabatanController::class, 'ubahRoleUpdate'])->name('update-data-role');
         Route::get('/tambahRole', [UserJabatanController::class, 'tambahRole'])->name('tambah-role');
         Route::post('/store', [UserJabatanController::class, 'addRole'])->name('store-data-role');
         //view yang dapat diakses oleh admin
@@ -39,6 +40,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/userDashboard', [DashboardController::class, 'indexUser'])->name('user-dashboard');
         Route::get('/surveyDashboard', [SurveyController::class, 'indexSurvey'])->name('survey-dashboard');
         Route::post('/storeSurvey', [SurveyController::class, 'addSurvey'])->name('store-data-survey');
+
+        Route::get('/bankPertanyaan', [BankPertanyaanController::class, 'indexBank'])->name('bank-pertanyaan');
+        Route::get('/tambahBank', [BankPertanyaanController::class, 'tambahBank'])->name('tambah-bank');
+        Route::post('/storeBank', [BankPertanyaanController::class, 'addBank'])->name('store-data-bank');
 
         Route::get('/questionDashboard', [BankPertanyaanController::class, 'indexPertanyaan'])->name('pertanyaan-dashboard');
         //view yang dapat diakses oleh user
