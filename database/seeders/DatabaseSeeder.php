@@ -26,10 +26,16 @@ class DatabaseSeeder extends Seeder
             'NamaJabatan' => 'Responden',
         ]);
         \App\Models\jenisPertanyaan::factory()->create([
-            'NamaJenisPertanyaan' => 'esai',
+            'NamaJenisPertanyaan' => 'V',
         ]);
         \App\Models\jenisPertanyaan::factory()->create([
-            'NamaJenisPertanyaan' => 'Pilihan Ganda',
+            'NamaJenisPertanyaan' => 'I',
+        ]);
+        \App\Models\jenisPertanyaan::factory()->create([
+            'NamaJenisPertanyaan' => 'P',
+        ]);
+        \App\Models\jenisPertanyaan::factory()->create([
+            'NamaJenisPertanyaan' => 'S',
         ]);
         \App\Models\User::factory()->create([
             'name' => 'surveyor',

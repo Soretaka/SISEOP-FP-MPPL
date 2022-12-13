@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bank_pertanyaans', function (Blueprint $table) {
             $table->id();
             $table->string('Pertanyaan');
-            $table->float('bobot');
+            $table->string('JenisPertanyaan');
             $table->timestamps();
         });
     }

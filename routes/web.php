@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/storeBank', [BankPertanyaanController::class, 'addBank'])->name('store-data-bank');
 
         Route::get('/questionDashboard', [BankPertanyaanController::class, 'indexPertanyaan'])->name('pertanyaan-dashboard');
+        Route::post('/storePertanyaan', [BankPertanyaanController::class, 'savePertanyaan'])->name('store-data-pertanyaan');
+        Route::get('/deletePertanyaan/{id}', [BankPertanyaanController::class, 'deletePertanyaan'])->name('delete-data-pertanyaan');
         //view yang dapat diakses oleh user
     });
 
