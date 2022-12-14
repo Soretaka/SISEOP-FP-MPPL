@@ -29,7 +29,11 @@
                                         <div class="text-sm text-gray-900"> V </div>
                                     </td>
                                     <td class="px-6 py-4 border whitespace-nowrap">
+                                        @if($survey_user->maks_skorv == 0)
+                                        <div class="text-sm text-gray-900"> 100%</div>
+                                        @else
                                         <div class="text-sm text-gray-900"> {{ $survey_user->skorv/$survey_user->maks_skorv*100 }}%</div>
+                                        @endif
                                     </td>
                                 </tr>
                                 <tr>
@@ -37,7 +41,11 @@
                                         <div class="text-sm text-gray-900"> I </div>
                                     </td>
                                     <td class="px-6 py-4 border whitespace-nowrap">
+                                        @if($survey_user->maks_skori == 0)
+                                            <div class="text-sm text-gray-900"> 100%</div>
+                                            @else
                                         <div class="text-sm text-gray-900"> {{ $survey_user->skori/$survey_user->maks_skori*100 }}%</div>
+                                        @endif
                                     </td>
                                 </tr>
                                 <tr>
@@ -45,7 +53,11 @@
                                         <div class="text-sm text-gray-900"> P </div>
                                     </td>
                                     <td class="px-6 py-4 border whitespace-nowrap">
+                                        @if($survey_user->maks_skorp == 0)
+                                        <div class="text-sm text-gray-900"> 100%</div>
+                                        @else
                                         <div class="text-sm text-gray-900"> {{ $survey_user->skorp/$survey_user->maks_skorp*100 }}%</div>
+                                        @endif
                                     </td>
                                 </tr>
                                 <tr>
@@ -53,7 +65,11 @@
                                         <div class="text-sm text-gray-900"> S </div>
                                     </td>
                                     <td class="px-6 py-4 border whitespace-nowrap">
+                                        @if($survey_user->maks_skors == 0)
+                                        <div class="text-sm text-gray-900"> 100%</div>
+                                        @else
                                         <div class="text-sm text-gray-900"> {{ $survey_user->skors/$survey_user->maks_skors*100 }}%</div>
+                                        @endif
                                     </td>
                                 </tr>
                             </tbody>
@@ -62,7 +78,7 @@
                         <td class="border whitespace-nowrap">
                             <a button
                             class="button mt-4 mb-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-                            href=" {{ url()->previous() }}">Back</a>
+                            href=" {{ route('past-survey-dashboard') }}">Back</a>
                         </td>
                     </div>
                 </div>

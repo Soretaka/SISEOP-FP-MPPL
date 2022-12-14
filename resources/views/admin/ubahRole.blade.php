@@ -26,7 +26,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     User - Jabatan <br>
                     @foreach($users as $user)
-
+                    <br>
                     <form action="{{ route('update-data-role') }}" method="POST">
                         {{ $user->name }} 
                     @csrf

@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{-- {{ __('Dashboard') }} --}}
+            Tambahkan penjawab survey
         </h2>
     </x-slot>
     @if(auth()->user()->jabatan_id  == 2)
@@ -23,13 +24,23 @@
                     <form action="{{ route('add-penjawab') }}" method="POST">
                     @csrf
                     <input name="survey_id" type="hidden" value={{ $survey_id }}>
+                    @if($users->isEmpty())
+                    <p>Semua user sudah diassign untuk mengisi survey ini</p>
+                    @else
                     <select name="user_id" id="user_id">
                         @foreach($users as $user)
                         <option value="{{ $user->id  }}" {{ $user->id == $user->id ? 'selected' : '' }}>{{ $user->name }} </option>
                         @endforeach
                     </select>
                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Save</button>
-                </form> 
+                    @endif
+                </form>
+                <br>
+                <td class="border whitespace-nowrap">
+                    <a button
+                    class="button mt-4 mb-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+                    href="{{ route('detail-data-survey', ['id'=>$survey_id]) }}">Back</a>
+                </td>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{-- {{ __('Dashboard') }} --}}
         </h2>
     </x-slot>
 
@@ -45,7 +45,7 @@
                     <td class="border whitespace-nowrap">
                         <a button
                         class="button mt-4 mb-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-                        href=" {{ url()->previous() }}">Back</a>
+                        href=" {{ route('penjawab-semua',$survey_ans->survey_id) }}">Back</a>
                     </td>
                 </div>
             </div>

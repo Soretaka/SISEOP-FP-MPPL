@@ -62,6 +62,12 @@ class SurveyController extends Controller
     {
         $id = $request->route('id');
         $survey = survey::findorFail($id);
+        $list_pertanyaan = survey_bank::where('survey_id', $id)->pluck('pertanyaan_id');
+        // return ($list_pertanyaan == null);
+        if ($list_pertanyaan->isEmpty()) {
+            return redirect()->route('detail-data-survey', $id)->with('error', 'Survey gagal dikunci, pertanyaan masih kosong');
+            // return "ayy";
+        }
         $survey->is_locked = 1;
         $survey->save();
         return redirect()->route('survey-dashboard')->with('success', 'Survey berhasil dikunci');

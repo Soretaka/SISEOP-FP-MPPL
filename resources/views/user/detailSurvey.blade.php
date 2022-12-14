@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{-- {{ __('Dashboard') }} --}}
+            Detail Survey
         </h2>
     </x-slot>
     @if(auth()->user()->jabatan_id  == 2)
@@ -10,6 +11,11 @@
             @if (session('hapus'))
             <div class="bg-red-100 border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                 {{ session('hapus') }}
+            </div>
+            @endif
+            @if (session('error'))
+            <div class="bg-red-100 border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                {{ session('error') }}
             </div>
             @endif
             @if (session('success'))
@@ -95,7 +101,7 @@
                     <td class="border whitespace-nowrap">
                         <a button
                         class="button mt-4 mb-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-                        href=" {{ url()->previous() }}">Back</a>
+                        href=" {{ route('survey-dashboard') }}">Back</a>
                     </td>
                     @endif
                 </div>
