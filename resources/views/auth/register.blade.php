@@ -53,8 +53,8 @@
             <!-- tempat tanggal lahir -->
             <div>
                 <x-input-label for="tl" :value="__('Tanggal Lahir')" />
-
-                <x-text-input id="tl" class="block mt-1 w-full" type="date" name="tl" :value="old('tl')" required autofocus />
+                    
+                <x-text-input id="tl" class="block mt-1 w-full" type="date" name="tl" max="{{ date('Y-m-d') }}" :value="old('tl')" required autofocus />
 
                 <x-input-error :messages="$errors->get('tl')" class="mt-2" />
             </div>
