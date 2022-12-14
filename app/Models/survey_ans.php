@@ -5,27 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class survey_user extends Model
+class survey_ans extends Model
 {
     use HasFactory;
     protected $fillable = [
         'survey_id',
         'user_id',
-        'skorv',
-        'skori',
-        'skorp',
-        'skors',
-        'maks_skorv',
-        'maks_skori',
-        'maks_skorp',
-        'maks_skors',
+        'pertanyaan',
+        'jawaban',
+    ];
+    protected $cast = [
+        'pertanyaan' => 'array',
+        'jawaban' => 'array'
     ];
     public function user()
     {
         return $this->hasOne(User::class);
-    }
-    public function survey()
-    {
-        return $this->hasMany(survey::class);
     }
 }

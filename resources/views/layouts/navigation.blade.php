@@ -17,7 +17,7 @@
                         <x-nav-link :href="route('tambah-role')" :active="request()->routeIs('tambah-role')">
                             tambah-role
                         </x-nav-link>
-                    @elseif (auth()->user()->jabatan_id != 1)
+                    @elseif (auth()->user()->jabatan_id == 2)
                         <x-nav-link :href="route('user-dashboard')" :active="request()->routeIs('user-dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
@@ -26,6 +26,16 @@
                         </x-nav-link>
                         <x-nav-link :href="route('pertanyaan-dashboard')" :active="request()->routeIs('pertanyaan-dashboard')">
                             survey question
+                        </x-nav-link>
+                    @elseif(auth()->user()->jabatan_id == 3)
+                        <x-nav-link :href="route('user-dashboard')" :active="request()->routeIs('user-dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('survey-dashboard')" :active="request()->routeIs('survey-dashboard')">
+                            survey dashboard
+                        </x-nav-link>
+                        <x-nav-link :href="route('past-survey-dashboard')" :active="request()->routeIs('past-survey-dashboard')">
+                            past survey
                         </x-nav-link>
                     @else
                         <x-nav-link :href="route('guest-dashboard')" :active="request()->routeIs('guest-dashboard')">

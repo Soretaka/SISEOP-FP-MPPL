@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('surveys', function (Blueprint $table) {
+        Schema::enableForeignKeyConstraints();
+        Schema::create('survey_banks', function (Blueprint $table) {
             $table->id();
-            $table->string('NamaSurvey');
-            $table->string('Deskripsi');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->unsignedBigInteger('survey_id');
+            $table->unsignedBigInteger('pertanyaan_id');
+            $table->foreign('pertanyaan_id')->references('id')->on('bank_pertanyaans')
                 ->onDelete('cascade')->onUpdate('cascade');
-            $table->boolean('is_locked')->default(false);
+            $table->foreign('survey_id')->references('id')->on('surveys')
+                ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('surveys');
+        Schema::dropIfExists('survey-banks');
     }
 };

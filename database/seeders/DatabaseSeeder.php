@@ -70,6 +70,17 @@ class DatabaseSeeder extends Seeder
             'JK' => 'Laki-laki',
             'jabatan_id' => '2',
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'guest',
+            'email' => 'guest@gmail.com',
+            'isAdmin' => '0',
+            'tl' => 'Bandung',
+            'alamat' => 'Bandung',
+            'noTelp' => '081234567890',
+            'NIP' => '1234567890',
+            'JK' => 'Laki-laki',
+            'jabatan_id' => '1',
+        ]);
         \App\Models\survey::factory()->create([
             'NamaSurvey' => 'Survey 1',
             'Deskripsi' => 'Deskripsi Survey 1',

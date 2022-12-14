@@ -22,11 +22,14 @@ return new class extends Migration
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
-            $table->float('skor1')->default(0);
-            $table->float('skor2')->default(0);
-            $table->float('skor3')->default(0);
-            $table->float('skor4')->default(0);
-            $table->float('skor5')->default(0);
+            $table->float('skorv')->default(0);
+            $table->float('skori')->default(0);
+            $table->float('skorp')->default(0);
+            $table->float('skors')->default(0);
+            $table->float('maks_skorv')->default(0);
+            $table->float('maks_skori')->default(0);
+            $table->float('maks_skorp')->default(0);
+            $table->float('maks_skors')->default(0);
             $table->timestamps();
         });
     }

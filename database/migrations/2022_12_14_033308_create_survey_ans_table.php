@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::enableForeignKeyConstraints();
-        Schema::create('survey-banks', function (Blueprint $table) {
+        Schema::create('survey_ans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('survey_id');
-            $table->unsignedBigInteger('pertanyaan_id');
-            $table->foreign('pertanyaan_id')->references('id')->on('bank_pertanyaans')
-                ->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->json('pertanyaan');
             $table->foreign('survey_id')->references('id')->on('surveys')
                 ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->json('jawaban');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survey-banks');
+        Schema::dropIfExists('survey_ans');
     }
 };
