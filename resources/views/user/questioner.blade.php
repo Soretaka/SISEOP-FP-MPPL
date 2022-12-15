@@ -131,7 +131,7 @@
                             @endforeach
                         </tbody>
                     @else
-                    <label class = "block text-gray-700 text-sm font-bold mb-2" for="namaSurvey">Berikut merupakan list survey yang harus dikerjakan</label>
+                    <label class = "block text-gray-700 text-sm font-bold mb-2" for="namaSurvey">Berikut merupakan list survey yang sudah dikerjakan</label>
                     <table class="mt-4 w-full border-collapse">
                         <thead class="bg-gray-50 border-b-2 border-gray-200">
                             <tr>
