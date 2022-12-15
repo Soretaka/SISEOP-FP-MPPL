@@ -28,7 +28,16 @@ class SurveyController extends Controller
             }
             // $survey_not_yet = survey::whereNotIn('id', $survey_users)->get();
             $nama_survey = survey::whereIn('id', $list_kosong)->get();
-            return view('user.questioner',  ['survey_users' => $nama_survey, 'past' => false]);
+            $survey_benar = [];
+            for ($i = 0; $i < count($nama_survey); $i++) {
+                $id_survey = $nama_survey[$i]->id;
+                $banyak_pertanyaan = survey_bank::where('survey_id', $id_survey)->count();
+                if ($banyak_pertanyaan > 0) {
+                    array_push($survey_benar, $nama_survey[$i]);
+                }
+            }
+            // return $survey_benar;
+            return view('user.questioner',  ['survey_users' => $survey_benar, 'past' => false]);
         } else {
             return redirect()->route('guest-dashboard');
         }
